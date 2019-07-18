@@ -1,0 +1,3 @@
+<?php
+    $emails = ['mike.anwar@gm.com','callum.jones17@hotmail.com','mike.anwar@outlook.com'];
+?>

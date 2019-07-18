@@ -1,0 +1,5 @@
+<?php
+$var1 = 'TPQb6ufCgI';
+$var2 = 'u3hlztw0Dc';
+$var3 = 'TPQb6ufCgI';
+?>

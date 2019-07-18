@@ -1,0 +1,5 @@
+<?php
+    // This controls the threshold on the graph and the emails.
+    $max_temp_threshold = 27;
+    $max_hum_threshold = 60;
+?>
