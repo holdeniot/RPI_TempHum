@@ -53,15 +53,15 @@ while 1:
         push_to_server.email_alert(GUID,temp,hum)
     
 	
-	try:
-		push_to_server.push_data(GUID,temp,hum)
-	except Exception, error:
-		logging.info('Error in pushing data to server: ')
-		logging.error(str(error))
-	else:
-		logging.info('Data pushed successfully')
-	finally:
-		logging.info('Finished pushing data')
+    try:
+	push_to_server.push_data(GUID,temp,hum)
+    except Exception, error:
+	logging.info('Error in pushing data to server: ')
+	logging.error(str(error))
+    else:
+	logging.info('Data pushed successfully')
+    finally:
+	logging.info('Finished pushing data')
     
     time.sleep(600)
 	
