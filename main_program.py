@@ -2,17 +2,6 @@ import read_sensor
 import push_to_server
 import time
 
-import logging
-from datetime import datetime
-
-LOG_FILENAME = datetime.now().strftime('rpi_logfile_%H_%M_%S_%d_%m_%Y.log')
-
-for handler in logging.root.handlers[:]:
-    logging.root.removeHandler(handler)
-logging.basicConfig(filename=LOG_FILENAME,level=logging.INFO)
-logging.info("RPi with GUID 2 Started")
-
-
 GUID = 2
 
 number_readings = 3 #Number of reading before sending an email, based on maximums based on 30minutes
@@ -25,16 +14,7 @@ time.sleep(5)
 
 #for i in range(1,300):
 while 1:
-    
-    try:
-        [temp,hum]= read_sensor.read_bme_sensor()
-    except Exception as error:
-        logging.info('Error in measurement: ')
-        logging.error(str(error))
-    else:
-        logging.info('Sensor measurement successful')
-    finally:
-        logging.info('Finished measurement section')
+    [temp,hum]= read_sensor.read_bme_sensor()
     
     if (temp > max_temp):
         count_above_max_temp+=1
@@ -52,20 +32,9 @@ while 1:
     if (count_above_max_hum >= number_readings+1):
         push_to_server.email_alert(GUID,temp,hum)
     
-    
-    try:
-        push_to_server.push_data(GUID,temp,hum)
-    except Exception as error:
-        logging.info('Error in pushing data to server: ')
-        logging.error(str(error))
-    else:
-        logging.info('Data pushed successfully')
-    finally:
-        logging.info('Finished pushing data')
+    push_to_server.push_data(GUID,temp,hum)
     
     time.sleep(600)
-    
-logging.error("If you see this message, the program has exited the main loop.")
     
   
 
