@@ -26,15 +26,15 @@ time.sleep(5)
 #for i in range(1,300):
 while 1:
 	
-	try:
-		[temp,hum]= read_sensor.read_bme_sensor()
-	except Exception, error:
-		logging.info('Error in measurement: ')
-		logging.error(str(error))
-	else:
-		logging.info('Sensor measurement successful')
-	finally:
-		logging.info('Finished measurement section')
+    try:
+	[temp,hum]= read_sensor.read_bme_sensor()
+    except Exception, error:
+	logging.info('Error in measurement: ')
+	logging.error(str(error))
+    else:
+	logging.info('Sensor measurement successful')
+    finally:
+	logging.info('Finished measurement section')
     
     if (temp > max_temp):
         count_above_max_temp+=1
