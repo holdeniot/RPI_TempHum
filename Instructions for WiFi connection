@@ -1,0 +1,15 @@
+Use this command to enter the file:
+"sudo nano /etc/wpa_supplicant/wpa_supplicant.conf"
+
+And replace the file contents with the following:
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=AU
+
+network={
+        ssid="GM Guest"
+        psk="GMHoldenGuest"
+        key_mgmt=NONE
+        wep_key0="GMHoldenGuest"
+}
