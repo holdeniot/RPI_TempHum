@@ -1,6 +1,10 @@
 Use this command to enter the file:
 "sudo nano /etc/wpa_supplicant/wpa_supplicant.conf"
 
+There are two options:
+1.      Replace the entire contents as per the instructions below
+2.      or remove all the network={} entries and manually reconnect to the desired network.
+
 And replace the file contents with the following:
 
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
